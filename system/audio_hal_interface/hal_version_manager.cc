@@ -152,7 +152,7 @@ HalVersionManager::GetProvidersFactory_2_0() {
 HalVersionManager::HalVersionManager() {
   hal_transport_ = BluetoothAudioHalTransport::UNKNOWN;
   if (AServiceManager_checkService(
-          DefaultAudioProviderFactoryInterface.c_str()) != nullptr) {
+          audioProviderFactoryInterface().c_str()) != nullptr) {
     hal_version_ = GetAidlInterfaceVersion();
     hal_transport_ = BluetoothAudioHalTransport::AIDL;
     return;
