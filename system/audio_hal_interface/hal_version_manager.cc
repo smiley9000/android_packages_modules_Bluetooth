@@ -27,6 +27,7 @@
 #include "include/check.h"
 #include "os/log.h"
 #include "osi/include/properties.h"
+
 namespace bluetooth {
 namespace audio {
 
@@ -37,7 +38,7 @@ static const std::string kDefaultAudioProviderFactoryInterface =
     std::string() + IBluetoothAudioProviderFactory::descriptor + "/default";
 static const std::string kSystemAudioProviderFactoryInterface =
     std::string() + IBluetoothAudioProviderFactory::descriptor + "/sysbta";
-static inline const std::string& audioProviderFactoryInterface() {
+static inline const std::string audioProviderFactoryInterface() {
   return osi_property_get_bool("persist.bluetooth.system_audio_hal.enabled", false)
     ? kSystemAudioProviderFactoryInterface : kDefaultAudioProviderFactoryInterface;
 }
